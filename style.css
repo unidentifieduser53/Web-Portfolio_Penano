@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ 
+html {
+    scroll-behavior: smooth;
+}
+ 
+body {
+    background: #1a1a1a;
+    color: #cccccc;
+}
+ 
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 60px;
+    background: #111111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 50px;
+    border-bottom: 2px solid #333333;
+}
+ 
+.logo {
+    color: #aaaaaa;
+}
+ 
+nav {
+    display: flex;
+    gap: 50px;
+}
+ 
+nav a {
+    text-decoration: none;
+    color: #aaaaaa;
+    padding: 10px 18px;
+    transition: .3s;
+    border-radius: 5px;
+}
+ 
+nav a:hover {
+    background: #2c2c2c;
+    color: #ffffff;
+}
+ 
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+    min-height: 100vh;
+}
+ 
+.hero-text {
+    width: 50%;
+}
+ 
+.hero-text h1 {
+    font-size: 65px;
+    color: #ffffff;
+}
+ 
+.hero-text p {
+    margin: 30px 0;
+    font-size: 22px;
+    line-height: 1.6;
+    color: #bbbbbb;
+}
+ 
+.hero-image img {
+    width: 400px;
+}
+ 
+.btn {
+    display: inline-block;
+    padding: 15px 20px;
+    background: #333333;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: .3s;
+    border: 1px solid #555555;
+}
+ 
+.btn:hover {
+    background: #555555;
+    transform: scale(1.05);
+}
+ 
+section {
+    padding: 80px 60px;
+}
+ 
+section h2 {
+    font-size: 40px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+ 
+section p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #bbbbbb;
+}
+ 
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+ 
+.card {
+    flex: 1;
+    min-width: 220px;
+    background: #2c2c2c;
+    color: #aaaaaa;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    transition: .3s;
+    border: 1px solid #3a3a3a;
+}
+ 
+.card h3 {
+    color: #dddddd;
+    margin-bottom: 10px;
+}
+ 
+.card p {
+    color: #999999;
+    font-size: 15px;
+}
+ 
+.card:hover {
+    transform: translateY(-10px);
+    background: #3a3a3a;
+    border-color: #666666;
+}
+
+.card.activity-card:hover {
+    transform: translateY(-10px) !important;
+}
+
+.card:hover h3 {
+    color: #ffffff;
+}
+ 
+.card:hover p {
+    color: #cccccc;
+}
+ 
+.card i {
+    font-size: 50px;
+    color: #888888;
+    margin-bottom: 20px;
+}
+ 
+#contact h3 {
+    margin-bottom: 10px;
+    color: #bbbbbb;
+    font-size: 20px;
+}
+ 
+footer {
+    background: #111111;
+    text-align: center;
+    padding: 20px;
+    color: #777777;
+    font-weight: bold;
+    border-top: 2px solid #333333;
+}
+ 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    padding: 14px 16px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    transition: .3s;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+ 
+.back-to-top:hover {
+    background: #555555;
+    transform: scale(1.1);
+}
+ 
+/* Activities */
+.activities-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.activities-heading h2 {
+    margin-bottom: 0;
+}
+
+.activities-toggle {
+    padding: 10px 16px;
+    background: #333333;
+    color: #ffffff;
+    border: 1px solid #555555;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.activities-toggle:hover {
+    background: #555555;
+}
+
+.activities-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.activities-list[hidden] {
+    display: none;
+}
+
+.activities-list {
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 900ms ease, opacity 900ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .activities-list {
+        transition-duration: 0.01ms;
+    }
+}
+
+.activity-card {
+    min-width: 280px;
+    padding: 20px;
+}
+ 
+.activity-card .preview {
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    background: #ffffff;
+    margin-bottom: 18px;
+}
+ 
+/* The page is rendered at desktop size, then scaled down to fit the card (see script.js) */
+.activity-card .preview iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 800px;
+    border: 0;
+    transform-origin: top left;
+    transform: scale(0.25);
+    pointer-events: none;
+}
+ 
+.activity-card .preview:focus-visible,
+.activity-card .btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+ 
+.activity-card p {
+    margin-bottom: 20px;
+}

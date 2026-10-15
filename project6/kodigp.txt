@@ -1,0 +1,92 @@
+
+const message = document.getElementById("message")
+const Button = document.getElementById("loadBtn")
+
+function showMessage(text){
+    message.innerHTML = text
+}
+
+Button.addEventListener("click", function(){
+    message.innterHTML = "Loading..."
+
+    setTimeout(function(){
+        showMessage("Welcome to JabaiScript!!!")
+    }, 2000)
+})
+
+
+const message = document.getElementById("message")
+const Button = document.getElementById("loadBtn")
+
+function loadMessage(){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+            let success = true
+            if(success){
+                resolve("Welcome to PDM")
+            }
+            else{
+                reject("Failed to authenticate")
+            }
+
+        },3000)
+    })
+}
+
+Button.addEventListener("click", function(){
+    message.innerHTML = "Loading...."
+
+    loadMessage()
+    .then(function(result){
+        message.innerHTML = result
+    })
+
+    .catch(function(error){
+        message.innerHTML = error
+    })
+
+})
+
+
+const message = document.getElementById("message")
+const Button = document.getElementById("loadBtn")
+
+function showMessage(){
+    return new Promise(function(resolve){
+        setTimeout(function(){
+            resolve("Checking Account....")
+        })
+    })
+}
+
+Button.addEventListener("click", function(){
+    message.innerHTML = "Loading..."
+
+    showMessage()
+
+    .then(function(result){
+        message.innerHTML = result
+
+        return new Promise(function(resolve){
+            setTimeout(function(){
+                resolve("Loading Profile ni bai....")
+            },3000)
+        })
+
+        .then(function(result){
+            message.innerHTML = result
+
+            return new Promise(function(resolve){
+                setTimeout(function(result){
+                    resolve("Welcome")
+                })
+            })
+        })
+
+        .then(function(result){
+            message.innerHTML = result
+        })
+    })
+})
+
+
